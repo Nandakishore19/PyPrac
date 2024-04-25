@@ -76,5 +76,19 @@ def div_decorate(func):
 @p_decorate
 def get_name(name):
     return "lorem ipsum, {0}".format(name)
-print(get_name.__name__)
-print(get_name("Kishore"))
+# print(get_name.__name__)
+# print(get_name("Kishore"))
+
+#Passing arguments to decorators
+def tags(tag_name):
+    def tag_decorator(func):
+        def wrapper_func(name):
+            return "<{0}>{1}</{0}>".format(tag_name,func(name))
+        return wrapper_func
+    return tag_decorator
+
+@tags('p')
+def get_text(name):
+    return "Hello {}".format(name)
+
+print(get_text("Nanda"))
