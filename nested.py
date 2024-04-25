@@ -1,3 +1,4 @@
+from functools import wraps
 x = "global x"
 
 def level_one():
@@ -50,4 +51,30 @@ def naming(name):
 # temp  = func_for_decorate(naming)
 # print(temp("Kishore"))
 #naming = func_for_decorate(naming)
-print(naming("Kishore"))
+# print(naming("Kishore"))
+
+
+def p_decorate(func):
+    @wraps(func)
+    def p_wrapper_func(name):
+        return "<p>{}</p>".format(func(name))
+    return p_wrapper_func
+def strong_decorate(func):
+    @wraps(func)
+    def s_wrapper_func(name):
+        return "<strong> {} </strong>".format(func(name))
+    return s_wrapper_func
+
+def div_decorate(func):
+    @wraps(func)
+    def d_wrapper_func(name):
+        return "<div> {} </div>".format(func(name))
+    return d_wrapper_func
+
+@div_decorate
+@strong_decorate
+@p_decorate
+def get_name(name):
+    return "lorem ipsum, {0}".format(name)
+print(get_name.__name__)
+print(get_name("Kishore"))
