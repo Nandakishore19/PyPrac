@@ -1,4 +1,5 @@
 import random
+from collections import namedtuple
 # print("Hello")
 # name = input("Enter your name:")
 # print(f"Hello {name}, welcome back")
@@ -133,3 +134,7 @@ print(isinstance(x,Test))
 # print(vars(Test))
 # print(setattr(Test,'name','Nanda'))
 print(x.__dict__)
+
+t = namedtuple('Car','Color make year')
+my_car = t('white','Wagonr','2020')
+print(my_car.Color)
