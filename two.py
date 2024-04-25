@@ -10,5 +10,28 @@ res = map(list,l)
 
 li = [1,2,3,4,5,6,7,8,9,10]
 
-res = (tuple(map(lambda x:x**x,li)))
-print(res)
+res = tuple(map(lambda x:x**x,li))
+# print(res)
+
+class Circle:
+    def __init__(self,radius) -> None:
+        self._radius = radius
+    @property
+    def radius(self):
+        print("Get Radius")
+        return self._radius
+    @radius.setter
+    def radius(self,rad):
+        print("Set radius")
+        self._radius = rad
+    @radius.deleter
+    def radius(self):
+        print("Deleting radius")
+        del self._radius
+
+
+
+x = Circle(1)
+x.radius = 2
+print(x.radius)
+del x.radius

@@ -22,5 +22,32 @@ def level_four():
         return x,y,z
     z = "second outer z"
     return inner("y arg")
-print(level_four())
+# print(level_four())
 #Closure wraps up a functionf
+
+
+def compose():
+    x = 'Nanda'
+    def greet(y):
+        return "{} {}".format(y,x)
+    return greet
+
+# greeting = compose()
+# print(greeting("Hello"))
+# print(greeting("Bye"))
+# print(greeting("Wlcome"))
+
+
+def func_for_decorate(func):
+    def wrapper_func(val):
+        return "{}".format(func(val))
+    return wrapper_func    
+
+@func_for_decorate
+def naming(name):
+    return "Nanda {}".format(name)
+
+# temp  = func_for_decorate(naming)
+# print(temp("Kishore"))
+#naming = func_for_decorate(naming)
+print(naming("Kishore"))
