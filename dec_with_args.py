@@ -15,3 +15,4 @@ def display_info(name,age):
 
 display_info('Nanda',21)
 display_info('Kishore',22)
+display_info('Gorenka',33)
